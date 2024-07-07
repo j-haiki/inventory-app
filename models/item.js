@@ -5,18 +5,15 @@ const Schema = mongoose.Schema;
 const ItemSchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
-  category: { type: String, required: true },
-  price: { type: Number, required: true },
-  quantity: { type: Number, required: true },
-  added: { type: Date, default: Date.now },
+  category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
+  price: { type: Schema.Types.Decimal128, required: true },
+  stock: { type: Number, required: true },
+  imageUrl: { type: String, require: true },
+  authorized: { type: Boolean, default: false },
 });
 
 ItemSchema.virtual("url").get(function () {
   return `/inventory/item/${this._id}`;
-});
-
-ItemSchema.virtual("addedFormatted").get(function () {
-  return DateTime.fromJSDate(this.added).toLocaleString(DateTime.DATE_MED);
 });
 
 module.exports = mongoose.model("Item", ItemSchema);
