@@ -1,0 +1,9 @@
+extends layout 
+
+block content
+    h1= title
+    img(src=item.imageUrl)
+    p= item.description
+    p Item Category: #{item.category.name}
+    p= "Price: " + item.price + "$"
+    p= item.stock + " in stock"

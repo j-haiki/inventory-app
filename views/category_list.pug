@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .list-container 
+    h1= title
+    if category_list.length
+      ul
+        each category in category_list
+          li
+            a= category.name
+            a(href=category.url) View
+    else
+      p No categories

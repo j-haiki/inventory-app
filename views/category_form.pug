@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+    h1= title
+    hr
+    form
+        label(for='name') Name 
+        span 
+        input#name(type='text', name='name', value=name)
+        p
+        label(for='description') Description
+        span
+        input#description(type='text', name='description', value=description)
+        p
+        label(for='imageUrl') Image URL
+        span
+        input#imageUrl(type='text', name='imageUrl', value=imageUrl)
+        p
+        label(for='authorized') Authorized
+        span
+        input#authorized(type='checkbox', name='authorized', value=authorized)
+        p
+        input(type='submit', value='Submit')

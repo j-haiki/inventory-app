@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    h1= title
+    if item_list.length 
+        ul
+            each item in item_list
+                li
+                    a= item.name
+                    a(href=item.url) View
+    else
+        p No items
